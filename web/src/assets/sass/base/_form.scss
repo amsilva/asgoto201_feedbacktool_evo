@@ -1,0 +1,49 @@
+form {
+  .control {
+    .select, select {
+      width: 100%;
+    }
+  }
+  .field {
+    &.required {
+      label:after {
+        content: '*';
+        font-weight: bold;
+        margin-left: .15rem;
+      }
+    }
+  }
+  .select {
+    select {
+      &:disabled {
+        border-color: $border-color;
+        &:hover {
+          border-color: $border-color-hover;
+        }
+      }
+    }
+  }
+}
+.datepicker {
+  position: relative;
+  &.readonly {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 10000;
+    }
+  }
+  .is-inline {
+    .dropdown-content {
+      padding: 0;
+    }
+    .datepicker-header {
+      margin-bottom: .5rem;
+      padding-bottom: .5rem;
+    }
+  }
+}

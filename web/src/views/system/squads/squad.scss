@@ -1,0 +1,23 @@
+#SquadPage {
+  .squads {
+    .table {
+      th, td {
+        width: 100px;
+        &:first-child {
+          flex-grow: 1;
+        }
+        &:nth-child(2) {
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+}
+
+#SquadFormPage {
+  select {
+    &[multiple] {
+      min-height: 500px;
+    }
+  }
+}

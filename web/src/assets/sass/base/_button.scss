@@ -1,0 +1,24 @@
+.button {
+	padding: calc(0.575em - 1px) 0.75em calc(0.375em - 1px) 0.75rem;
+	&:not(.is-outlined) {
+		border: none !important;
+		color: lighten($text-color-2, 15);
+	}
+	&.is-outlined {
+		border: $border-width $border-style;
+		background-color: transparent !important;
+	}
+	&:focus {
+		box-shadow: none !important;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	&.is-large {
+		line-height: 2.4rem;
+	}
+	&.is-negative {
+		background-color: $text-color-2;
+		color: $text-color;
+	}
+}

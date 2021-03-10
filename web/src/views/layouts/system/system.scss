@@ -1,0 +1,121 @@
+.system {
+  min-height: 100vh;
+  display: flex;
+  background-color: lighten(map-get($colors, 'lightgrey'), 15);
+  .system-main {
+    @extend %animation-config;
+    margin-left: $menu-width;
+    max-width: calc(100vw - #{$menu-width});
+    flex-grow: 1;
+    .system-content {
+      padding: 1.5rem;
+    }
+  }
+  .show-collapse + .system-main {
+    margin-left: $menu-width-show;
+    max-width: calc(100vw - #{$menu-width-show});
+  }
+}
+.layout-blue {
+  .menu {
+    background: linear-gradient(
+      141deg,
+      darken(map-get($colors, 'blue'), 12) 0%,
+      darken(map-get($colors, 'blue'), 2.5) 0% );
+    .menu-header .avatar {
+      .image img, .menu-show {
+        border-color: darken(map-get($colors, 'blue'), 15) !important;
+        color: darken(map-get($colors, 'blue'), 15) !important;
+      }
+      .menu-show:hover {
+        background-color: lighten(map-get($colors, 'blue'), 50) !important;
+      }
+    }
+    .menu-list {
+      a {
+        color: white;
+      }
+    }
+  }
+  .navbar {
+    background: lighten(map-get($colors, 'blue'), 5);
+    .button {
+      color: darken($text-color, 5);
+      background-color: white;
+      &:hover {
+        background-color: lighten(map-get($colors , "blue"), 55);
+      }
+      &.is-outlined {
+        color: $text-color-2;
+        background-color: transparent;
+      }
+      &.router-link-active {
+        // background-color: darken(map-get($colors , "blue"), 30);
+        color: white;
+        background-color: #264e72;
+      }
+    }
+  }
+  .button {
+    background-color: lighten(map-get($colors, 'blue'), 5);
+    &.is-outlined {
+      border-color: map-get($colors, 'blue');
+      color: map-get($colors, 'blue');
+    }
+  }
+  .datepicker {
+    .datepicker-cell{
+      &.is-today {
+        font-weight: bold;
+        background-color: darken(map-get($colors, 'blue'), 12);
+        span {
+          color: white;
+        }
+      }
+      &.is-selected {
+        &.is-first-selected,
+        &.is-last-selected {
+          background-color: lighten(map-get($colors, 'blue'), 5) !important;
+        }
+        &.is-within-selected {
+          background-color: lighten(map-get($colors, 'blue'), 25) !important;
+        }
+      }
+    }
+  }
+}
+.layout-black {
+  .menu {
+    background: linear-gradient(
+      141deg,
+      darken(map-get($colors, 'darkgrey'), 12) 0%,
+      darken(map-get($colors, 'darkgrey'), 2.5) 0% );
+    .menu-header .avatar {
+      .image img, .menu-show {
+        border-color: $border-color;
+      }
+      .menu-show:hover {
+        color: lighten($text-color, 5) !important;
+      }
+    }
+    .menu-list {
+      a {
+        color: white;
+      }
+    }
+  }
+  .navbar {
+    background: lighten(map-get($colors, 'darkgrey'), 5);
+    .button {
+      color: darken($text-color, 5);
+      background-color: lighten(map-get($colors, 'lightgrey'), 10);
+      &.is-outlined {
+        color: $text-color-2;
+        background-color: transparent;
+      }
+    }
+  }
+  .button {
+    background-color: lighten(map-get($colors, 'darkgrey'), 5);
+  }
+}

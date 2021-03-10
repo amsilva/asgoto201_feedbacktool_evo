@@ -1,0 +1,75 @@
+#Access {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	.left-column {
+		width: calc(100vw - 550px);
+		position: relative;	
+		height: 100%;
+	}
+	.right-column {
+		width: 550px;
+		height: 100%;
+		display: flex;
+		padding: 3.25rem;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+	}
+	.button-group {
+		position: absolute;
+		left: -150px;
+		width: 150px;
+		.button {
+			background: transparent;
+			border-radius: .75rem 0 0 .75rem;
+			text-align: left;
+			& + .button {
+				margin-top: .5rem;
+			}
+			&:hover {
+			}
+			&.is-active {
+				background-color: $app-background-color;
+				&:hover {
+					background-color: darken($app-background-color, 5);
+				}
+			}
+		}
+	}
+	.background {
+		position: absolute;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .001;
+	}
+}
+
+@media #{$small-only} {}
+@media #{$medium-only} {}
+@media #{$normal-only} {
+	#Access {
+		.left-column {
+			width: calc(100vw - 400px);
+		}
+		.right-column {
+			width: 400px;
+			padding: 2.25rem;
+		}
+	}
+}
+@media #{$large-only} {
+	#Access {
+		.left-column {
+			width: calc(100vw - 475px);
+		}
+		.right-column {
+			width: 475px;
+			padding: 2.75rem;
+		}
+	}
+}

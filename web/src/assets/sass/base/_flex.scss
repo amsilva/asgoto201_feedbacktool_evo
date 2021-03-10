@@ -1,0 +1,23 @@
+.is-flex, .is-inline-flex {
+  &.flex-center-v {
+    align-items: center;
+  }
+  &.flex-center-h {
+    justify-content: center;
+  }
+  &.flex-spaced-h {
+    justify-content: space-between;
+  }
+  &.flex-col {
+    flex-direction: column;
+  }
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.flex-end {
+  justify-content: flex-end;
+}

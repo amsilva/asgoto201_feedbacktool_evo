@@ -1,0 +1,58 @@
+html, body {
+	min-height: 100vh;
+	font-family: "commons";
+	font-size: 16px;
+	background-color: $app-background-color;
+}
+#app {
+	min-height: 100vh;
+}
+a {
+	&:not(.button){
+		text-decoration: underline;
+		color: lighten(map-get($colors, 'darkgrey'), 5);
+		&:hover {
+			color: lighten(map-get($colors, 'darkgrey'), 35);
+		}
+	}
+}
+.page-title {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+.section {
+	padding: 1rem 0;
+	margin-bottom: 2rem;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+.avatar {
+	margin: 0 auto;
+	position: relative;
+	min-width: 54px;
+	.image {
+		overflow: hidden;
+		img {
+			@extend %animation-config;
+			border-radius: 100%;
+		}
+	}
+}
+#shadow {
+	@extend %animation-config;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	opacity: 0;
+	background-color: rgba(255, 255, 255, .75);
+	z-index: -1;
+	&.show {
+		z-index: 100000;
+		opacity: 1;
+		display: block;
+	}
+}

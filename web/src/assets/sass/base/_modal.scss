@@ -1,0 +1,5 @@
+.modal {
+  &.is-active {
+    z-index: 10000;
+  }
+}

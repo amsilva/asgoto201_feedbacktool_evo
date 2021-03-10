@@ -1,0 +1,196 @@
+.rounded {
+  border-radius: 100000rem;
+}
+.full-height {
+  height: 100%;
+}
+.full-width {
+  width: 100%;
+}
+
+// LINK SEPARATOR -------------------------------------------------------/
+.pipe-separator {
+  text-decoration: none;
+  & + .pipe-separator {
+    margin-left: .5rem;
+    &:before {
+      content: '|';
+      margin-right: .5rem;
+      color: $text-color;
+    }
+  }
+}
+
+// BORDERS CONFIG -------------------------------------------------------/
+.bd {
+  border: $border-width $border-color $border-style;
+}
+.bd-top {
+  border-top: $border-width $border-color $border-style;
+}
+.bd-right {
+  border-right: $border-width $border-color $border-style;
+}
+.bd-bottom {
+  border-bottom: $border-width $border-color $border-style;
+}
+.bd-bottom {
+  border-bottom: $border-width $border-color $border-style;
+}
+.bd-invert {
+  border-color: $border-color-2;
+}
+.bd-radius {
+  border-radius: $border-radius;
+}
+
+// COLORS CONFIG --------------------------------------------------------/
+@each $cls, $val in $colors {
+  .tx-#{$cls} {
+  	color: #{$val} !important;
+  	fill: #{$val} !important;
+  }
+  .bg-#{$cls} {
+    background-color: #{$val} !important;
+    &.is-gradient {
+    	background-color: #{$val} !important;
+      background: -moz-linear-gradient(141deg, darken($val, 15) 0%, $val 71%, lighten($val, 12.5) 100%);
+      background: -webkit-linear-gradient(141deg, darken($val, 15) 0%, $val 71%, lighten($val, 12.5) 100%);
+      background-image: linear-gradient(141deg, darken($val, 15) 0%, $val 71%, lighten($val, 12.5) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='darken($val, 15)', endColorstr='#{$val}', GradientType=1 );
+    }
+    &.is-outlined {
+      background-color: transparent !important;
+      color: #{$val} !important;
+      border-color: #{$val} !important;
+    }
+  }
+  .bd-#{$cls} {
+  	border-color: #{$val} !important;
+  }
+};
+
+// FONTS CONFIG ---------------------------------------------------------/
+@each $font, $config in $fonts {
+	$font-filename: nth($config, 1);
+	$font-format: nth($config, 2);
+	@font-face {
+		font-family: "#{$font}";
+		src: url("#{$font-url}#{$font-filename}") format("#{$font-format}");
+	}
+	.fn-#{$font} {
+		font-family: "#{$font}";
+	}
+}
+
+// FONTS SIZE CONFIG ---------------------------------------------------/
+@for $size from 0 through 4 {
+	@for $denary from 0 through 9 {
+		@if( $denary == 0 ) {
+			.fn-s#{$size} {
+				font-size: #{$size}rem !important;
+			}
+		} @else {
+			.fn-s#{$size}#{$denary} {
+				font-size: #{$size+'.'+$denary}rem !important;
+			}
+		}
+	}
+}
+.fn-s5 {
+	font-size: 5rem !important;
+}
+
+// LINE HEIGHT CONFIG ---------------------------------------------------/
+@for $size from 1 through 4 {
+  @for $denary from 0 through 9 {
+    @if( $denary == 0 ) {
+      .lh-#{$size} {
+        line-height: #{$size}rem !important;
+      }
+    } @else {
+      .lh-#{$size}#{$denary} {
+        line-height: #{$size+'.'+$denary}rem !important;
+      }
+    }
+  }
+}
+.lh-5 {
+  line-height: 5rem !important;
+}
+
+// MARGIN AND PADDING CONFIG --------------------------------------------/
+/*** PADDING & MARGINS em */
+.m-lr-a {
+  margin-left: auto;
+  margin-right: auto;
+}
+@each $style, $property in ( 'p': padding, 'm': margin ) {
+  @for $size from 0 through 9 {
+    @for $denary from 0 through 9 {
+      @if( $denary == 0 ) {
+        .#{$style}-#{$size} {
+          #{$property}: #{$size}em !important;
+        }
+        .#{$style}-tb-#{$size} {
+          #{$property}-top: #{$size}rem !important;
+          #{$property}-bottom: #{$size}rem !important;
+        }
+        .#{$style}-lr-#{$size} {
+          #{$property}-left: #{$size}rem !important;
+          #{$property}-right: #{$size}rem !important;
+        }
+        .#{$style}-n#{$size} {
+          #{$property}: -#{$size}em !important;
+        }
+        .#{$style}-tb-n#{$size} {
+          #{$property}-top: -#{$size}rem !important;
+          #{$property}-bottom: -#{$size}rem !important;
+        }
+        .#{$style}-lr-n#{$size} {
+          #{$property}-left: -#{$size}rem !important;
+          #{$property}-right: -#{$size}rem !important;
+        }
+        @each $l_dir, $n_dir in ( 't': top, 'r': right, 'b': bottom, 'l': left ) {
+          .#{$style}-#{$l_dir}-#{$size} {
+            #{$property}-#{$n_dir}: #{$size}rem !important;
+          }
+          .#{$style}-#{$l_dir}-n#{$size} {
+            #{$property}-#{$n_dir}: -#{$size}rem !important;
+          }
+        }
+      } @else {
+        .#{$style}-#{$size}#{$denary} {
+          #{$property}: #{$size+'.'+$denary}rem !important;
+        }
+        .#{$style}-tb-#{$size}#{$denary} {
+          #{$property}-top: #{$size+'.'+$denary}rem !important;
+          #{$property}-bottom: #{$size+'.'+$denary}rem !important;
+        }
+        .#{$style}-lr-#{$size}#{$denary} {
+          #{$property}-left: #{$size+'.'+$denary}rem !important;
+          #{$property}-right: #{$size+'.'+$denary}rem !important;
+        }
+        .#{$style}-n#{$size}#{$denary} {
+          #{$property}: -#{$size+'.'+$denary}rem !important;
+        }
+        .#{$style}-tb-n#{$size}#{$denary} {
+          #{$property}-top: -#{$size+'.'+$denary}rem !important;
+          #{$property}-bottom: -#{$size+'.'+$denary}rem !important;
+        }
+        .#{$style}-lr-n#{$size}#{$denary} {
+          #{$property}-left: -#{$size+'.'+$denary}rem !important;
+          #{$property}-right: -#{$size+'.'+$denary}rem !important;
+        }
+        @each $l_dir, $n_dir in ( 't': top, 'r': right, 'b': bottom, 'l': left ) {
+          .#{$style}-#{$l_dir}-#{$size}#{$denary} {
+            #{$property}-#{$n_dir}: #{$size+'.'+$denary}rem !important;
+          }
+          .#{$style}-#{$l_dir}-n#{$size}#{$denary} {
+            #{$property}-#{$n_dir}: -#{$size+'.'+$denary}rem !important;
+          }
+        }
+      }
+    }
+  }
+}

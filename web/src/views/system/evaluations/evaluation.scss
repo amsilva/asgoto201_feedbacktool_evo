@@ -1,0 +1,76 @@
+#EvaluationPage {
+  .graphic {
+    .graphic-chart {
+      height: 400px;
+    }
+  }
+  .evaluations {
+    .b-table {
+      .table {
+        th, td {
+          &:first-child {
+            min-width: 200px;
+            flex-grow: 1;
+          }
+          &:nth-child(2) {
+            min-width: 170px;
+          }
+          &:nth-child(3) {
+            min-width: 170px;
+          }
+          &:nth-child(4) {
+            min-width: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#EvaluationFormPage {
+  .tags{
+    margin: 0 .5rem 0rem 0;
+    span.tag {
+      font-size: 1rem;
+      border: $border-width $border-style darken(map-get($colors, "blue"), 5);
+      color: white;
+      background-color: lighten(map-get($colors, "blue"), 25);
+      padding: .2rem 0 0;
+      min-width: 195px;
+    }
+    a.tag.is-delete {
+      font-size: 1rem;
+      border: $border-width $border-style darken(map-get($colors, "blue"), 5);
+      background-color: map-get($colors, "blue");
+      color: white;
+
+    }
+  }
+  .modal {
+    .modal-content {
+      width: 460px;
+    }
+    .modal-body {
+      padding: 1rem;
+      background-color: whitesmoke;
+      h3 {
+        text-align: center;
+      }
+      .button {
+        min-width: 100px;
+      }
+    }
+  }
+}
+#EvaluationsResultsPage {
+  table {
+    td, th {
+      flex-grow: 1;
+    }
+  }
+}
+#EvolutionRatePage {
+  .avatar {
+    width: 70%;
+  }
+}

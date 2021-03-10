@@ -1,0 +1,98 @@
+.menu {
+  @extend %animation-config;
+  width: $menu-width;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 7px -1px rgba(41, 41, 41, 0.7);
+  z-index: 500;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  &.show-collapse {
+    width: $menu-width-show;
+    .menu-header {
+      .avatar {
+        .image img {
+          border: .2rem solid;
+        }
+        .menu-show {
+          border: .2rem solid;
+          height: 3rem !important;
+          width: 3rem !important;
+          right: 0rem;
+          bottom: 0rem;
+        }
+      }
+    }
+    .menu-list {
+      a {
+        label {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .menu-header {
+    margin: 0 !important;
+    padding: 3rem 0.5rem;
+    height: 240px;
+    a {
+      height: $navbar-height;
+    }
+    .avatar {
+      width: $menu-avatar-width;
+      .image {
+        img {
+          border: .05rem solid;
+        }
+      }
+      .menu-show {
+        @extend %animation-config;
+        border-radius: 100%;
+        border: .05rem solid;
+        position: absolute;
+        background-color: white !important;
+        height: 1.5rem;
+        width: 1.5rem;
+        right: -.25rem;
+        bottom: -.25rem;
+        .mdi:before {
+          @extend %animation-config;
+        }
+      }
+    }
+  }
+  .menu-body {
+    flex-grow: 1;
+  }
+  .menu-footer {
+  }
+  .menu-list {
+    padding: 0 0.75rem;
+    li {
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      &:hover a {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      a {
+        @extend %animation-config;
+        height: $menu-link-height;
+        width: calc(#{$menu-width-show} - 1.5rem);
+        font-size: $menu-font-size;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        &.router-link-active {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
+        label {
+          flex-grow: 1;
+          margin: 0 0.75rem;
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

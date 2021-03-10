@@ -1,0 +1,110 @@
+$app-background-color: #fff;
+$app-wrapper-max-width: 76.5rem;
+$app-wrapper-width: calc(100% - 4rem);
+
+$app-wrapper-width-tablet: calc(100% - 3rem);
+
+// $primary-color: #B81334;
+$text-color: #333333;
+$text-color-2: #e5e5e5;
+$border-color: #191919;
+$border-color-2: #CCC;
+$link-color: #454545;
+$link-color-2: #666666;
+
+$colors: (
+  "transparent": transparent,
+  "red": #900000,
+  "blue": #336799,
+  "teal": teal,
+  "green": #2dac67,
+  "yellow": #daa300,
+  "orange": #e0621e,
+  "white": #fff,
+  "lightgrey": #ccc,
+  "grey": #999,
+  "darkgrey": #333,
+  "black": #000,
+  "whitesmoke": whitesmoke,
+  "disabled": rgba(122, 122, 122, 0.7),
+  "facebook": #4267B2,
+  "linkedin": #0e76a8,
+  "medium": #44b3a4,
+  "behance": #053eff ,
+  "instagram": #E1306C,
+  "twitter": #1DA1F2,
+  "github": #24292e,
+  "gfx-color-1": #2dac67,
+  "gfx-color-0": #259cc1,
+  "gfx-color-2": #daa300,
+  "gfx-color-3": #e0621e,
+  "gfx-color-4": #900000,
+);
+
+$font-url: "/fonts/";
+$fonts: (
+  "commons": (
+    "TTCommons-Regular.ttf",
+    "truetype",
+  ),
+  "commons-demibold": (
+    "TTCommons-DemiBold.ttf",
+    "truetype",
+  ),
+  "commons-medium": (
+    "TTCommons-Medium.ttf",
+    "truetype",
+  ),
+);
+
+%animation-config {
+	transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	-webkit-transition: all .25s ease-in-out;
+}
+
+// BORDERS CONFIG -------------------------------------------------------/
+$border-color: #dbdbdb;
+$border-color-hover: #b5b5b5;
+$border-width: 1px;
+$border-style: solid;
+$border-radius: 0.25rem;
+
+// MEDIA QUERIES --------------------------------------------------------/
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$normal-screen-up: 1024px !default;
+$large-screen-up: 1201px !default;
+$xlarge-screen-up: 1351px !default;
+
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$normal-screen: 1023px !default;
+$large-screen: 1200px !default;
+$xlarge-screen: 1350px !default;
+
+$small-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$medium-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$normal-and-up: "only screen and (min-width : #{$normal-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+$xlarge-and-up: "only screen and (min-width : #{$xlarge-screen-up})" !default;
+
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$normal-and-down: "only screen and (max-width : #{$normal-screen})" !default;
+$large-and-down: "only screen and (max-width : #{$large-screen})" !default;
+
+$small-only: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$medium-screen-up}) and (max-width : #{$normal-screen})" !default;
+$normal-only: "only screen and (min-width : #{$normal-screen-up}) and (max-width : #{$large-screen})" !default;
+$large-only: "only screen and (min-width : #{$large-screen-up}) and (max-width : #{$xlarge-screen})" !default;
+
+// NAVBAR CONFIG -------------------------------------------------------/
+$navbar-height: 3.75rem;
+
+// MENU CONFIG ---------------------------------------------------------/
+$menu-width: 70px;
+$menu-width-show: 240px;
+$menu-avatar-width: 70%;
+$menu-link-height: 2.75rem;
+$menu-font-size: 1rem;
