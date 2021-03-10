@@ -1,14 +1,12 @@
-## Feedback_360<sup>oTool
+# Feedback_360<sup>oTool
 
-[TOC]
-
-## 1. Apresentação 
+## 1. Apresentação
 
 Este projeto é o desenvolvimento de um sistema web em SPA (Single Page Application) focado na user experience (experiência do usuário), voltado para uso de empresas que tenham equipes de desenvolvimento. O sistema irá coletar os dados preenchidos por seus usuários e, em cima destes, gerar uma linha histórica de acontecimentos. Isso permitirá que os administradores, tenham um acompanhamento sobre a evolução de cada profissional e da equipe como um todo.
 
 `<CodeProject>`[Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS](https://www.codeproject.com/Articles/5272992/Development-of-a-Tool-to-Support-the-360-Feedback "Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS")
 
-`<ResearchGate>`[Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS](https://www.researchgate.net/publication/342852151_Development_of_a_Tool_to_Support_the_360_Feedback_Process_in_Workgroups_Using_Vuejs_and_Firebase_DBaaS "Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS") 
+`<ResearchGate>`[Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS](https://www.researchgate.net/publication/342852151_Development_of_a_Tool_to_Support_the_360_Feedback_Process_in_Workgroups_Using_Vuejs_and_Firebase_DBaaS "Development of a Tool to Support the 360 Feedback Process in Workgroups Using Vue.js and Firebase DBaaS")
 
 ## 2. Especificação Funcional
 
@@ -16,23 +14,22 @@ Os usuários podem ser previamente cadastrados no sistema e indicados a qual equ
 
 ![](https://www.codeproject.com/KB/applications/5272992/use_case_diagram.jpg)
 
-
 ##### Lista de Usuários
 
-	 Administrador
-	 Líder de equipe
-	 Membro colaborador
+	 1. Administrador
+	 2. Líder de equipe
+	 3. Membro colaborador
 
 ##### Principais Funcionalidades
 
-	 Cadastrar-se
-	 Consultar e editar perfil
-	 Consultar rating pessoal
-	 Consultar rating do time (squad)
-	 Gerenciar sessões de avaliação
-	 Gerenciar cadastro de usuários
-	 Gerenciar time (squad)
-	 Avaliar pares
+	 - Cadastrar-se
+	 - Consultar e editar perfil
+	 - Consultar rating pessoal
+	 - Consultar rating do time (squad)
+	 - Gerenciar sessões de avaliação
+	 - Gerenciar cadastro de usuários
+	 - Gerenciar time (squad)
+	 - Avaliar pares
 
 ##### Perfis de Acesso
 
@@ -47,58 +44,56 @@ Os usuários podem ser previamente cadastrados no sistema e indicados a qual equ
 | Gerenciar time (squad) |   | X |    |
 | Avaliar pares |  X |  X |   |   |
 
-
-
 ##### Regras de Negócio
 
-- Aprovação: Uma vez que o cadastro tenha sido feito pelo próprio usuário, o sistema irá avisar aos administradores a necessidade de aprovação dos perfis, bem como a alteração de acesso. Após todos os usuários serão livres para utilizar o sistema dentro de suas limitações.
+- **Aprovação**: Uma vez que o cadastro tenha sido feito pelo próprio usuário, o sistema irá avisar aos administradores a necessidade de aprovação dos perfis, bem como a alteração de acesso. Após todos os usuários serão livres para utilizar o sistema dentro de suas limitações.
 
-- Equipes: Os administradores irão cadastrar as equipes, informando o nome, quem será o líder e seus respectivos membros;
+- **Equipes**: Os administradores irão cadastrar as equipes, informando o nome, quem será o líder e seus respectivos membros;
 
-- Múltipas equipes: os usuários podem participar de diversas equipes
+- **Múltipas equipes**: os usuários podem participar de diversas equipes
 simultaneamente, como líderes ou administradores, desde que elegíveis para isso.
 
-- Anonimato: esta fase, sobre o funcionamento do sistema, foi definido que todos os resultados das avaliações serão anônimos com apontamento de índices e comentários se existirem, seja de algum membro específico ou sobre o grupo como um todo, afim de resguardar a segurança e a individualidade de cada participante.
+- **Anonimato**: esta fase, sobre o funcionamento do sistema, foi definido que todos os resultados das avaliações serão anônimos com apontamento de índices e comentários se existirem, seja de algum membro específico ou sobre o grupo como um todo, afim de resguardar a segurança e a individualidade de cada participante.
 
-- Perfis de acesso: serão três perfis para cadastro no sistema, sendo estes os perfis de usuário, líderes e administradores, cada um com seus níveis de acesso e responsabilidades sobre o sistema.
+- **Perfis de acesso**: serão três perfis para cadastro no sistema, sendo estes os perfis de usuário, líderes e administradores, cada um com seus níveis de acesso e responsabilidades sobre o sistema.
 
-- Cadastro: os usuários são livres para fazer o próprio cadastro necessitando apenas informar o nome, telefone, e-mail e senha de preferência. Os demais dados pessoais podem ser preenchidos posteriormente ao primeiro acesso no sistema;
+- **Cadastro**: os usuários são livres para fazer o próprio cadastro necessitando apenas informar o nome, telefone, e-mail e senha de preferência. Os demais dados pessoais podem ser preenchidos posteriormente ao primeiro acesso no sistema;
 
-- Dados adicionais: os dados profissionais, de equipe, ou de projetodos membros são de reponsabilidade dos administradores;
+- **Dados adicionais**: os dados profissionais, de equipe, ou de projetodos membros são de reponsabilidade dos administradores;
 
-- Categorização: para os resultados, foram levantados 4 perfis. O de transformador os colaboradores com alto potencial, o evolutivo rápido para aqueles com médio a alto potencial, o evolutivo lento para aqueles com potencial baixo a médio com restrições e o não evolutivo para aqueles que não se encaixarem dentro do esperado.
+- **Categorização**: para os resultados, foram levantados 4 perfis. O de transformador os colaboradores com alto potencial, o evolutivo rápido para aqueles com médio a alto potencial, o evolutivo lento para aqueles com potencial baixo a médio com restrições e o não evolutivo para aqueles que não se encaixarem dentro do esperado.
 
-- Deadline: Ao final do prazo estipulado na criação da avaliação, ou quando todos os membros preencherem suas avaliações, o sistema liberará automaticamente o resultado, podendo ser acessada por todos os usuários participantes em sua home.
+- **Deadline**: Ao final do prazo estipulado na criação da avaliação, ou quando todos os membros preencherem suas avaliações, o sistema liberará automaticamente o resultado, podendo ser acessada por todos os usuários participantes em sua home.
 
-- Abstenção: na ocorrência de abstenções, o sistema ainda assim liberará o resultado. Para este caso, se a quantidade de membrosque responderam seja inferior a 5, o sistema considerará que as faltantes sejam “não sei responder”. Medidas como estas visam preservar a identidade de quem já respondeu evitando dados inconsistentes.
+- **Abstenções**: na ocorrência de abstenções, o sistema ainda assim liberará o resultado. Para este caso, se a quantidade de membrosque responderam seja inferior a 5, o sistema considerará que as faltantes sejam “não sei responder”. Medidas como estas visam preservar a identidade de quem já respondeu evitando dados inconsistentes.
 
-###3. Projeto e Tecnologia Envolvida
+### 3. Projeto e Tecnologia Envolvida
 
 Para o desenvolvimento do sistema a linguagem utilizada é o **JavaScript** com uso do **Framework Vue**, framework incremental em SPA (Single Page Application).
 
 Para armazenamento dos dados será utilizado o **Firebase**, uma plataforma atualmente desenvolvida pela Google que provê diversos serviços para desenvolvimento de aplicações web e mobile, dos quais serão utilizados o banco de dados, o serviço de autenticação e as API’s (Application Programming Interface).
 
-![](https://www.codeproject.com/KB/applications/5272992/tela_firebase_.png)
+![]()
+<img src="https://www.codeproject.com/KB/applications/5272992/tela_firebase_.png" width="500">
 
 As principais entidades que suportam o modelo do sistema desenvolvido são:
 
-1. coleções para entidades de domínio,
+**coleções para entidades de domínio**
 
-		usuários: desenvolvedores de trabalho em equipe, avaliando e sendo avaliados
-		avaliações: sessão para avaliar alguém, é uma janela para observar, considerar e avaliar pelos pares
-		elenco: é uma tabela com todas as avaliações, contém pontos, critérios e observações feitas
+**usuários**: desenvolvedores de trabalho em equipe, avaliando e sendo avaliados
+**avaliações**: sessão para avaliar alguém, é uma janela para observar, considerar e avaliar pelos pares
+**elenco**: é uma tabela com todas as avaliações, contém pontos, critérios e observações feitas
 
-2. coleções para relacionamentos e
+**coleções para relacionamentos** e
 
-		avaliations_rates: link usado para indicar a participação da pessoa em um processo de avaliação
-		squad_user: link para associar uma pessoa a uma tabela de taxas de seleção
+**avaliations_rates**: link usado para indicar a participação da pessoa em um processo de avaliação
+squad_user**: link para associar uma pessoa a uma tabela de taxas de seleção
 
-3. coleções para espelhamento
+**coleções para espelhamento**
 
-		data_de_avaliação: replica as informações para melhorar a carga de trabalho de apresentação de dados, o portfólio do usuário e da equipe
+**data_de_avaliação**: replica as informações para melhorar a carga de trabalho de apresentação de dados, o portfólio do usuário e da equipe
 
 A participação é enviada ao servidor de banco de dados por meio do Firebase Google API (Application Programming Interface). Esses dados serão salvos separadamente em diferentes coleções (**squads**) conectadas pelo ID dos membros avaliados e o ID da sessão de avaliação (**squad_user**). Portanto, a seguir, todas as outras classificações dos mesmos processos (**evaluations**) também são adicionadas.
-
 
 Como ferrametnas e tecnologias de apoio ao processo de desenvolvimento temos:
 - **Visual Studio**: editor de texto utilizado na geração da base de código da aplicação;
@@ -111,19 +106,22 @@ Como ferrametnas e tecnologias de apoio ao processo de desenvolvimento temos:
 
 ### 4. Resultados
 
-![](https://www.codeproject.com/KB/applications/5272992/tela_admin.png)
+![]()
+<img src="https://www.codeproject.com/KB/applications/5272992/tela_admin.png" width="500">
 > Tela do Administrador.
 
-![](https://www.codeproject.com/KB/applications/5272992/tela_relatorio_avaliacao_donut.png)
+![]()
+<img src="https://www.codeproject.com/KB/applications/5272992/tela_relatorio_avaliacao_donut.png" width="500">
 > Personal Rate Report Screen.
 
 
-![](https://www.codeproject.com/KB/applications/5272992/tela_home2.png)
+![]()
+<img src="https://www.codeproject.com/KB/applications/5272992/tela_home2.png" width="500">
 > Personal Homepage from a Team Member.
 
-![](https://www.codeproject.com/KB/applications/5272992/tela_avaliando2.png)
+![]()
+<img src="https://www.codeproject.com/KB/applications/5272992/tela_avaliando2.png" width="500">
 > Input the Scoring to Members into Assessment Session.
-
 
 ### 5. Deploy
 
@@ -143,24 +141,20 @@ Vale ressaltar que:
 
 #### Project setup
 
-```
-npm install
-```
+	$ npm install
 
-** Compiles and hot-reloads for development**
-```
-npm run serve
-```
+**Compiles and hot-reloads for development**
 
-** Compiles and minifies for production**
-```
-npm run build
-```
+	$ npm run serve
 
-** Lints and fixes files**
-```
-npm run lint
-```
+**Compiles and minifies for production**
+
+	$ npm run build
+
+**Lints and fixes files**
+
+	$ npm run lint
+
 
 More and customize configuration: See [Configuration Reference](https://cli.vuejs.org/config/).
 
