@@ -22,14 +22,17 @@ Os usuários podem ser previamente cadastrados no sistema e indicados a qual equ
 
 ##### Principais Funcionalidades
 
-	 - Cadastrar-se
-	 - Consultar e editar perfil
-	 - Consultar rating pessoal
-	 - Consultar rating do time (squad)
-	 - Gerenciar sessões de avaliação
-	 - Gerenciar cadastro de usuários
-	 - Gerenciar time (squad)
-	 - Avaliar pares
+
+- [x] Cadastrar-se
+- [ ] Cadastro por integração com Github 
+- [x] Consultar e editar perfil
+- [x] Consultar rating pessoal
+- [x] Consultar rating do time (squad)
+- [x] Gerenciar sessões de avaliação
+- [x] Gerenciar cadastro de usuários
+- [x] Gerenciar time (squad)
+- [x] Avaliar pares
+- [ ] Receber menssagem de notificação 
 
 ##### Perfis de Acesso
 
@@ -73,25 +76,35 @@ Para o desenvolvimento do sistema a linguagem utilizada é o **JavaScript** com 
 
 Para armazenamento dos dados será utilizado o **Firebase**, uma plataforma atualmente desenvolvida pela Google que provê diversos serviços para desenvolvimento de aplicações web e mobile, dos quais serão utilizados o banco de dados, o serviço de autenticação e as API’s (Application Programming Interface).
 
+A figura 1 mostra os documentos e seus atributos definidos para o projeto. Vale ressaltar principalmente o conjunto de datos de configuração, composto por dados dinâmicos, tais como os "critérios de avaliação", "dados pessoais de um user" entre outros.
+
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_firebase_.png" width="500">
+> Figura 1. Tela de gerenciamento do Firebase
 
 As principais entidades que suportam o modelo do sistema desenvolvido são:
 
-**coleções para entidades de domínio**
+- **1. coleções para entidades de domínio**
 
-**usuários**: desenvolvedores de trabalho em equipe, avaliando e sendo avaliados
-**avaliações**: sessão para avaliar alguém, é uma janela para observar, considerar e avaliar pelos pares
-**elenco**: é uma tabela com todas as avaliações, contém pontos, critérios e observações feitas
+	- **usuários (users)**: desenvolvedores de trabalho em equipe, avaliando e sendo avaliados
 
-**coleções para relacionamentos** e
+	- **avaliações (evaluations)**: sessão para avaliar alguém, é uma janela para observar, considerar e avaliar pelos pares
 
-**avaliations_rates**: link usado para indicar a participação da pessoa em um processo de avaliação
+	- **elenco (squads)**: é uma tabela com todas as avaliações, contém pontos, critérios e observações feitas
+
+- **2. coleções para relacionamentos** e
+
+	- **avaliations_rates**: link usado para indicar a participação da pessoa em um processo de avaliação
 squad_user**: link para associar uma pessoa a uma tabela de taxas de seleção
 
-**coleções para espelhamento**
+- **3. coleções para espelhamento**
 
-**data_de_avaliação**: replica as informações para melhorar a carga de trabalho de apresentação de dados, o portfólio do usuário e da equipe
+	- **data_de_avaliação**: replica as informações para melhorar a carga de trabalho de apresentação de dados, o portfólio do usuário e da equipe
+
+A figura 2 mostra o escopo de dependencia das entidades com uma abstração baseada em objetos e colaboração. 
+
+<img src="https://i.ibb.co/q0JL539/asgoto-model-preview-1.png" alt="asgoto_model_preview_1" border="0" width="500">
+> Figura 2. Modelo de entidades e suas colaborações.
 
 A participação é enviada ao servidor de banco de dados por meio do Firebase Google API (Application Programming Interface). Esses dados serão salvos separadamente em diferentes coleções (**squads**) conectadas pelo ID dos membros avaliados e o ID da sessão de avaliação (**squad_user**). Portanto, a seguir, todas as outras classificações dos mesmos processos (**evaluations**) também são adicionadas.
 
@@ -106,29 +119,37 @@ Como ferrametnas e tecnologias de apoio ao processo de desenvolvimento temos:
 
 ### 4. Resultados
 
+A figura 3 mostra a principal tela do sistema. Nela um membro de um determinado time avalia seus pares (outros integrantes do time) de acordo com os critérios definidos durante a criação da sessão de avaliação (assessement).
+
+<img src="https://i.ibb.co/wR9pC3R/asgoto-tela-avaliando-1.png" alt="asgoto_tela_avaliando_1" border="0" width="500">
+> Figura 3. Tela do processo de avaliação.
+
+A figura 4 apresenta dois momentos par ao usuário administrador. Na primeira parte (topo) trata-se da tela de definiçao de uma sessão de avaliação (assessment). Nela o administrador define a identificação, as datas e as equipes que receberão esta sessão.
+
+Na parte inferior, é apresentada a funcionalidade de construção de um time de trabalho. Trata-sede uma funcionalidade muito simples que ainda explora recursos de usabilidade para deixar a experiência do administrador mais agradável. Nesta tela o administrador define o nome do time, seu lider imediato e utilizando multiplas seleções inclui ou remove seus membros usuários.
+
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_admin.png" width="500">
-> Tela do Administrador.
+> Figura 4. Tela do Administrador.
+
+A figura 5 apresenta o relatório disponível para cada usuário. Ela tenta focar a atenção do usuário no contexto geral utilizando cores e um componente de fácil visualização estatística. Lembrand0 que as avaliações recebidas são anônimas.
 
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_relatorio_avaliacao_donut.png" width="500">
-> Personal Rate Report Screen.
+> Figura 5. Personal Rate Report Screen.
 
+A figura 6 é a página de perfil do usuário. Além dos dados pessoais e a possibilidade de alterá-los o usuário também tem um indíce com sua pontuação geral no sistema, seguido do sua categoria.
 
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_home2.png" width="500">
-> Personal Homepage from a Team Member.
-
-![]()
-<img src="https://www.codeproject.com/KB/applications/5272992/tela_avaliando2.png" width="500">
-> Input the Scoring to Members into Assessment Session.
+> Figura 6. Personal Homepage from a Team Member.
 
 ### 5. Deploy
 
 #### Para utilização do sistema:
 
 1. Faça o clone deste projeto
-2. Acesse a pasta web (um dia existirá um back end desevolvido e a pasta server)
+2. Acesse a pasta web
 3. Rode NPM INSTALL
 4. Agora execute NPM RUN SERVE
 
@@ -168,7 +189,7 @@ More and customize configuration: See [Configuration Reference](https://cli.vuej
 5. Disponível em “https://www.shipcompetency.com/”. Acessado em 13 de março de 2020.
 
 
-&reg; _asgoto201 (CC) Creative Commons CC BY-NC_ 
-andreseijigoto@gmail.com
+MIT License Copyright 2020 &reg; _asgoto201 
 
-fim!
+and (CC) Creative Commons CC BY-NC_ 
+andreseijigoto@gmail.com
