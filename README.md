@@ -32,7 +32,7 @@ Os usuários podem ser previamente cadastrados no sistema e indicados a qual equ
 - [x] Gerenciar cadastro de usuários
 - [x] Gerenciar time (squad)
 - [x] Avaliar pares
-- [ ] Receber menssagem de notificação 
+- [ ] Receber mensagem de notificação 
 
 ##### Perfis de Acesso
 
@@ -53,7 +53,7 @@ Os usuários podem ser previamente cadastrados no sistema e indicados a qual equ
 
 - **Equipes**: Os administradores irão cadastrar as equipes, informando o nome, quem será o líder e seus respectivos membros;
 
-- **Múltipas equipes**: os usuários podem participar de diversas equipes
+- **Múltiplas equipes**: os usuários podem participar de diversas equipes
 simultaneamente, como líderes ou administradores, desde que elegíveis para isso.
 
 - **Anonimato**: esta fase, sobre o funcionamento do sistema, foi definido que todos os resultados das avaliações serão anônimos com apontamento de índices e comentários se existirem, seja de algum membro específico ou sobre o grupo como um todo, afim de resguardar a segurança e a individualidade de cada participante.
@@ -62,13 +62,13 @@ simultaneamente, como líderes ou administradores, desde que elegíveis para iss
 
 - **Cadastro**: os usuários são livres para fazer o próprio cadastro necessitando apenas informar o nome, telefone, e-mail e senha de preferência. Os demais dados pessoais podem ser preenchidos posteriormente ao primeiro acesso no sistema;
 
-- **Dados adicionais**: os dados profissionais, de equipe, ou de projetodos membros são de reponsabilidade dos administradores;
+- **Dados adicionais**: os dados profissionais, de equipe, ou de projeto dos membros são de reponsabilidade dos administradores;
 
 - **Categorização**: para os resultados, foram levantados 4 perfis. O de transformador os colaboradores com alto potencial, o evolutivo rápido para aqueles com médio a alto potencial, o evolutivo lento para aqueles com potencial baixo a médio com restrições e o não evolutivo para aqueles que não se encaixarem dentro do esperado.
 
 - **Deadline**: Ao final do prazo estipulado na criação da avaliação, ou quando todos os membros preencherem suas avaliações, o sistema liberará automaticamente o resultado, podendo ser acessada por todos os usuários participantes em sua home.
 
-- **Abstenções**: na ocorrência de abstenções, o sistema ainda assim liberará o resultado. Para este caso, se a quantidade de membrosque responderam seja inferior a 5, o sistema considerará que as faltantes sejam “não sei responder”. Medidas como estas visam preservar a identidade de quem já respondeu evitando dados inconsistentes.
+- **Abstenções**: na ocorrência de abstenções, o sistema ainda assim liberará o resultado. Para este caso, se a quantidade de membros que responderam seja inferior a 5, o sistema considerará que as faltantes sejam “não sei responder”. Medidas como estas visam preservar a identidade de quem já respondeu evitando dados inconsistentes.
 
 ### 3. Projeto e Tecnologia Envolvida
 
@@ -94,21 +94,23 @@ As principais entidades que suportam o modelo do sistema desenvolvido são:
 
 - **2. coleções para relacionamentos** e
 
-	- **avaliations_rates**: link usado para indicar a participação da pessoa em um processo de avaliação
+	- **evaliations_rates**: link usado para indicar a participação da pessoa em um processo de avaliação
 squad_user**: link para associar uma pessoa a uma tabela de taxas de seleção
 
 - **3. coleções para espelhamento**
 
 	- **data_de_avaliação**: replica as informações para melhorar a carga de trabalho de apresentação de dados, o portfólio do usuário e da equipe
 
-A figura 2 mostra o escopo de dependencia das entidades com uma abstração baseada em objetos e colaboração. 
+
+A figura 2 mostra o escopo de dependência das entidades com uma abstração baseada em objetos e colaboração. 
 
 <img src="https://i.ibb.co/q0JL539/asgoto-model-preview-1.png" alt="asgoto_model_preview_1" border="0" width="500">
 > Figura 2. Modelo de entidades e suas colaborações.
 
+
 A participação é enviada ao servidor de banco de dados por meio do Firebase Google API (Application Programming Interface). Esses dados serão salvos separadamente em diferentes coleções (**squads**) conectadas pelo ID dos membros avaliados e o ID da sessão de avaliação (**squad_user**). Portanto, a seguir, todas as outras classificações dos mesmos processos (**evaluations**) também são adicionadas.
 
-Como ferrametnas e tecnologias de apoio ao processo de desenvolvimento temos:
+Como ferramentas e tecnologias de apoio ao processo de desenvolvimento temos:
 - **Visual Studio**: editor de texto utilizado na geração da base de código da aplicação;
 - **Firebase**: plataforma de desenvolvimento mobile e web pertencente a Google, com diversos serviços, dos quais serão utilizados as API’s e o banco de cados; 
 - **Vue JS**: biblioteca JavaScript utilizada para construção de interfaces de usuário baseadas em componentes;
@@ -124,15 +126,16 @@ A figura 3 mostra a principal tela do sistema. Nela um membro de um determinado 
 <img src="https://i.ibb.co/wR9pC3R/asgoto-tela-avaliando-1.png" alt="asgoto_tela_avaliando_1" border="0" width="500">
 > Figura 3. Tela do processo de avaliação.
 
-A figura 4 apresenta dois momentos par ao usuário administrador. Na primeira parte (topo) trata-se da tela de definiçao de uma sessão de avaliação (assessment). Nela o administrador define a identificação, as datas e as equipes que receberão esta sessão.
 
-Na parte inferior, é apresentada a funcionalidade de construção de um time de trabalho. Trata-sede uma funcionalidade muito simples que ainda explora recursos de usabilidade para deixar a experiência do administrador mais agradável. Nesta tela o administrador define o nome do time, seu lider imediato e utilizando multiplas seleções inclui ou remove seus membros usuários.
+A figura 4 apresenta dois momentos para o usuário administrador. Na primeira parte (topo) trata-se da tela de definiçao de uma sessão de avaliação (assessment). Nela o administrador define a identificação, as datas e as equipes que receberão esta sessão.
+
+Na parte inferior, é apresentada a funcionalidade de construção de um time de trabalho. Trata-se de uma funcionalidade muito simples que ainda explora recursos de usabilidade para deixar a experiência do administrador mais agradável. Nesta tela o administrador define o nome do time, seu lider imediato e utilizando multiplas seleções inclui ou remove seus membros usuários.
 
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_admin.png" width="500">
 > Figura 4. Tela do Administrador.
 
-A figura 5 apresenta o relatório disponível para cada usuário. Ela tenta focar a atenção do usuário no contexto geral utilizando cores e um componente de fácil visualização estatística. Lembrand0 que as avaliações recebidas são anônimas.
+A figura 5 apresenta o relatório disponível para cada usuário. Ela tenta focar a atenção do usuário no contexto geral utilizando cores e um componente de fácil visualização estatística. Lembrando que as avaliações recebidas são anônimas.
 
 ![]()
 <img src="https://www.codeproject.com/KB/applications/5272992/tela_relatorio_avaliacao_donut.png" width="500">
@@ -189,7 +192,4 @@ More and customize configuration: See [Configuration Reference](https://cli.vuej
 5. Disponível em “https://www.shipcompetency.com/”. Acessado em 13 de março de 2020.
 
 
-MIT License Copyright 2020 &reg; _asgoto201 
-
-and (CC) Creative Commons CC BY-NC_ 
-andreseijigoto@gmail.com
+<sup>_MIT License Copyright 2020 &reg; _asgoto201 and (CC) Creative Commons CC BY-NC - andreseijigoto@gmail.com__<sup>
